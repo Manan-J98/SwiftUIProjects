@@ -11,6 +11,9 @@ struct ContentView: View {
 //    @State private var showingAlert = false
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var score = 0
+    @State private var tries = 8
+    @State private var reset = false
     @State var countries = ["Estonia", "France", "Germany", "Ireland", "Italy", "Nigeria", "Poland", "Spain", "UK", "Ukraine", "US"].shuffled()
     @State var correctChoice = Int.random(in: 0...2)
     var body: some View {
@@ -110,7 +113,7 @@ struct ContentView: View {
                 
                 Spacer()
                 Spacer()
-                Text("Score ???")
+                Text("Score \(score)/8")
                     .foregroundStyle(.white)
                     .font(.title.bold())
                 Spacer()
@@ -122,7 +125,13 @@ struct ContentView: View {
                 askQuestion()
             }
         } message: {
-            Text("Your score is ???")
+            Text("Your score is \(score)")
+        }.alert(scoreTitle, isPresented: $reset) {
+            Button("Restart Game") {
+                resetGame()
+            }
+        } message: {
+            Text("Your final score is \(score)/8")
         }
         
         
@@ -131,13 +140,24 @@ struct ContentView: View {
     }
     
     func flagTapped(_ num: Int) {
+        tries -= 1
+        if tries == 0 {
+            reset = true
+        }
         if num == correctChoice {
             scoreTitle = "Correct"
+            score += 1
         } else {
-            scoreTitle = "Incorrect"
+            scoreTitle = "Incorrect, that's the flag of \(countries[num])"
         }
         
         showingScore = true
+    }
+    
+    func resetGame() {
+        showingScore = false
+        score = 0
+        askQuestion()
     }
     
     func askQuestion() {
