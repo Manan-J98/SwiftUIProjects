@@ -1,13 +1,13 @@
 //
-//  WeSplitUITestsLaunchTests.swift
-//  WeSplitUITests
+//  CoordinatorTestUITestsLaunchTests.swift
+//  CoordinatorTestUITests
 //
-//  Created by Manan Juneja on 2025-01-23.
+//  Created by Manan Juneja on 2025-02-19.
 //
 
 import XCTest
 
-final class WeSplitUITestsLaunchTests: XCTestCase {
+final class CoordinatorTestUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true

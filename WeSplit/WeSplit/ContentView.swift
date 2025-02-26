@@ -108,3 +108,13 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
+struct Calculate {
+    func calcluateTip(billAmount: Double, tip: Double) -> Double? {
+        guard billAmount >= 0 && tip >= 0 else {
+            return nil
+        }
+        let tipPercentage = tip / 100
+        return billAmount * tipPercentage
+    }
+}

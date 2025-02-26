@@ -5,13 +5,21 @@
 //  Created by Manan Juneja on 2025-01-23.
 //
 
-import Testing
+import XCTest
 @testable import WeSplit
 
-struct WeSplitTests {
+final class WeSplitTests: XCTestCase {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    func testSuccessfulTipAmount() {
+        // Arrange
+        let billAmount = 500.0
+        let tip = 10.0
+        let calculation = Calculate()
+        //Act
+        let tipAmount = calculation.calcluateTip(billAmount: billAmount, tip: tip)
+        
+        // Assert
+        XCTAssertEqual(tipAmount, 50)
     }
 
 }

@@ -1,13 +1,13 @@
 //
-//  WeSplitUITests.swift
-//  WeSplitUITests
+//  CoordinatorTestUITests.swift
+//  CoordinatorTestUITests
 //
-//  Created by Manan Juneja on 2025-01-23.
+//  Created by Manan Juneja on 2025-02-19.
 //
 
 import XCTest
 
-final class WeSplitUITests: XCTestCase {
+final class CoordinatorTestUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
